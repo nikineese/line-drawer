@@ -15,17 +15,19 @@ export class Draw {
         if (!this.ctx) return;
         this.ctx.strokeStyle = this.color;
         this.ctx.beginPath();
-        this.ctx.arc(x, y, rad, 0, Math.TAU);
+        this.ctx.arc(x, y, rad, 0, Math.PI * 2);
         this.ctx.stroke();
     }
 
     drawPoints(drag, col = "#aef193") {
-        let i = 0, x, y;
-        drag.nearest = -1;
-        let minDist = 20;
         this.setColor(col)
+        drag.nearest = -1;
+
+        let i = 0, x, y;
+        let minDist = 20;
         while (i < this.points.length) {
             this.drawPoint(x = this.points[i++], y = this.points[i++], 6);
+
             const dist = (x - this.mouse.x) ** 2 + (y - this.mouse.y) ** 2;
             if (dist < minDist) {
                 minDist = dist;
@@ -50,9 +52,11 @@ export class Draw {
 
     drawLine(col = '#fff') {
         if (!this.ctx) return;
-        const circle = fitCircleToPoints(this.points);
-        this.ctx.strokeStyle = col;
+        this.setColor(col);
+        this.ctx.strokeStyle = this.color;
         this.ctx.beginPath();
+
+        const circle = fitCircleToPoints(this.points);
         if (circle) {
             const ang1 = Math.atan2(this.points[1] - circle.y, this.points[0]- circle.x);
             const ang2 = Math.atan2(this.points[5] - circle.y, this.points[4]- circle.x);
@@ -62,10 +66,11 @@ export class Draw {
             this.ctx.lineTo(this.points[2], this.points[3]);
             this.ctx.lineTo(this.points[4],this. points[5]);
         }
+
         this.ctx.stroke();
     }
 
-    setLinePointsCoordinates() {
+    setPoints() {
         if (this.mouse.point < 1) {
             this.mouse.isCreating = true
             this.points[this.mouse.point++] = this.mouse.x;
@@ -75,6 +80,7 @@ export class Draw {
             this.points[this.mouse.point++] = this.calculateMiddlePointCoordinate(this.mouse.y)
             this.points[this.mouse.point++] = this.mouse.x;
             this.points[this.mouse.point++] = this.mouse.y;
+
             this.mouse.point = 0;
             this.mouse.isCreating = false
         }

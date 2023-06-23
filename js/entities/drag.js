@@ -10,7 +10,7 @@ export class Drag {
         this.ctx = ctx;
     }
 
-    startDragging(cvsIns,draw) {
+    dragDetect(cvsIns, draw) {
         if (this.nearest > -1) {
             if (draw.mouse.button) {
                 if (!this.isDragging) {
@@ -26,7 +26,7 @@ export class Drag {
         }
     }
 
-    endDragging(cvsIns,draw) {
+    dragMove(cvsIns, draw) {
         if (this.isDragging) {
             if (!draw.mouse.button) {
                 this.isDragging = false;

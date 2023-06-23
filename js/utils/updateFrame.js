@@ -10,13 +10,13 @@ export function updateFrame(cvsIns,cvs,ctx,draw,drag) {
     }
     if (draw.isSomePointIsntSettled() || draw.isNotInDrawingRange()) {
         if (drag.isDragging) {
-            drag.endDragging(cvsIns,draw)
+            drag.dragMove(cvsIns,draw)
         }
         return;
     }
 
     draw.drawPoints(drag);
     draw.drawLine();
-    drag.startDragging(cvsIns,draw);
-    drag.endDragging(cvsIns,draw);
+    drag.dragDetect(cvsIns,draw);
+    drag.dragMove(cvsIns,draw);
 }

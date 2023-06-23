@@ -11,7 +11,6 @@ const draw = new Draw(ctx);
 const drag = new Drag(ctx);
 
 (function init() {
-    Math.TAU = Math.PI * 2;
     requestAnimationFrame(() => updateFrame(cvsIns,cvs,ctx,draw,drag))
 })()
 

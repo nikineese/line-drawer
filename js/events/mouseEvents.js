@@ -4,7 +4,7 @@ export function mouseEvents(e,cvs,draw,drag){
     draw.mouse.y = e.pageY - bounds.top - scrollY;
 
     if (e.type === 'click' && !drag.isDragging) {
-        draw.setLinePointsCoordinates(draw.points,draw.mouse)
+        draw.setPoints(draw.points,draw.mouse)
     }
     draw.mouse.button = e.type === "mousedown" ? true : e.type === "mouseup" ? false : draw.mouse.button;
 }
