@@ -1,0 +1,40 @@
+* {
+    font-family: "Lato", sans-serif;
+}
+h1,h2,h3,h4,h5,h6 {
+    padding: 0;
+    margin: 0;
+}
+canvas {
+    border-radius: 10px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,0);
+    width: max-content;
+    height: max-content;
+}
+body {
+    background-color: #545454;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+img {
+    border-radius: 10px;
+    width: fit-content;
+    height: fit-content;
+}
+.container {
+    border-radius: 10px;
+    margin-top: 20px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    height: fit-content;
+    box-shadow:  5px 5px 20px #757272,
+    -5px -5px 20px #757272;
+}
