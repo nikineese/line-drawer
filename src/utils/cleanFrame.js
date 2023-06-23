@@ -1,4 +1,4 @@
-import {resetCanvas} from "./resetCanvas.js";
+import {resetCanvas} from "./resetCanvas";
 
 export function cleanFrame(cvs,ctx,draw) {
     resetCanvas(cvs,ctx)
