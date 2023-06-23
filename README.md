@@ -1,5 +1,5 @@
 # LINE-DRAWER
-## Service to create service for drawing lines on image
+## Service for drawing lines on image
 Task was completed using HTML, CSS and Vanilla JS because there isn't any reason to use frameworks
 for this task
 ## Installation
